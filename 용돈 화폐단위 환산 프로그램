@@ -1,0 +1,49 @@
+#pragma warning(disable : 4996)
+#include<stdio.h>
+
+int calculate(int, int);
+int rest(int, int,int);
+void output(int, int);
+int main() {
+	int money;
+	int num;
+	int i=1;
+	int unit = 100000;
+
+	printf("돈을 입력하시오 : ");
+	scanf("%d", &money);
+	while (i <= 8)
+	{
+		if (i % 2 > 0)
+		{
+			unit = unit / 2;
+		}
+		else {
+			unit = unit / 5;
+		}
+		num = calculate(money, unit);
+		money = rest(money, num, unit);
+		output(num, unit);
+		i++;
+	}
+	return 0;
+
+}
+int calculate(int rest, int unit)
+{
+	int num;
+	num= rest / unit;
+	return num;
+}
+int rest(int money, int num,int unit)
+{
+	int rest;
+	rest = money - num * unit;
+	return rest;
+}
+
+void output(int num, int unit)
+{
+	printf("%d원권 => %d개\n", unit,num);
+	return;
+}
