@@ -14,13 +14,13 @@ int main() {
 }
 int input1(void) {
 	int age;
-	printf("ÀÔÀå°´ÀÇ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+	printf("ì…ì¥ê°ì˜ ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 	scanf("%d", &age);
 	return age;
 }
 int input2(void) {
 	int num;
-	printf("ÀÔÀå°´ÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+	printf("ì…ì¥ê°ì˜ ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 	scanf("%d", &num);
 	return num;
 }
@@ -45,8 +45,8 @@ void output(int age, int num)
 	}
 	if (num >= 5) { discount = price * 0.1; }
 	tot = num * price;
-	printf("ÀÔÀå·á => %d¿ø\n", tot);
-	printf("ÇÒÀÎ±İ¾× => %d¿ø\n", num * discount);
-	printf("°áÁ¦±İ¾× => %d¿ø\n", tot - num * discount);
+	printf("ì…ì¥ë£Œ => %dì›\n", tot);
+	printf("í• ì¸ê¸ˆì•¡ => %dì›\n", num * discount);
+	printf("ê²°ì œê¸ˆì•¡ => %dì›\n", tot - num * discount);
 	return;
 }
