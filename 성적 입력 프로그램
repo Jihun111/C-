@@ -4,10 +4,10 @@
 int main() {
 	int his, lit, ent, tot;
 	double avg;
-	printf("¿ª»ç, ¹®ÇĞ, ¿¹´É Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+	printf("ì—­ì‚¬, ë¬¸í•™, ì˜ˆëŠ¥ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 	scanf("%d %d %d", &his, &lit, &ent);
 	tot = his + lit + ent;
 	avg = tot / 3L;
-	printf("ÃÑÁ¡Àº %dÀÌ°í Æò±ÕÀº %.2lfÀÔ´Ï´Ù.", tot, avg);
+	printf("ì´ì ì€ %dì´ê³  í‰ê· ì€ %.2lfì…ë‹ˆë‹¤.", tot, avg);
 	return 0;
 }
