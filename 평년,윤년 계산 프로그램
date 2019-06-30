@@ -19,7 +19,7 @@ int main() {
 }
 int input(void) {
 	int year;
-	printf("³âµµ¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+	printf("ë…„ë„ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 	scanf("%d", &year);
 	return year;
 }
@@ -45,10 +45,10 @@ int yearCheck(int year) {
 }
 void output(int num, int check) {
 	if (check == 0) {
-		printf("%d³âÀº Æò³â(Common year)ÀÔ´Ï´Ù.\n", num);
+		printf("%dë…„ì€ í‰ë…„(Common year)ì…ë‹ˆë‹¤.\n", num);
 	}
 	else {
-		printf("%d³âÀº À±³â(Leep year)ÀÔ´Ï´Ù.\n", num);
+		printf("%dë…„ì€ ìœ¤ë…„(Leep year)ì…ë‹ˆë‹¤.\n", num);
 	}
 	return;
 }
