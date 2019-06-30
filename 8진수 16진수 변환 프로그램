@@ -5,13 +5,13 @@ int main()
 {
 	int number;
 	number = input();
-	printf("ÀÔ·ÂµÈ °ªÀº 8Áø¼ö·Î %#oÀÔ´Ï´Ù.\n", number);
-	printf("ÀÔ·ÂµÈ °ªÀº 16Áø¼ö·Î %#xÀÔ´Ï´Ù.\n", number);
+	printf("ì…ë ¥ëœ ê°’ì€ 8ì§„ìˆ˜ë¡œ %#oì…ë‹ˆë‹¤.\n", number);
+	printf("ì…ë ¥ëœ ê°’ì€ 16ì§„ìˆ˜ë¡œ %#xì…ë‹ˆë‹¤.\n", number);
 	return 0;
 }
 int input(void) {
 	int num;
-	printf("Á¤¼ö°ªÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+	printf("ì •ìˆ˜ê°’ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 	scanf("%d", &num);
 	return num;
 }
