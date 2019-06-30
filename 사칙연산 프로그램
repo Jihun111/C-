@@ -5,7 +5,7 @@ int main()
 {
 	int in1, in2;
 	double res;
-	printf("µÎ°³ÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+	printf("ë‘ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 	scanf("%d %d", &in1, &in2);
 	res = (double)in1 / in2;
 	printf("%d + %d = %d\n", in1, in2, in1 + in2);
