@@ -1,0 +1,83 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+char menu();
+int inputInt(const char*);
+int deposit(int);
+int withdraw(int);
+void myflush();
+
+int main() {
+	char sel;
+	int money = 0;
+	while (1) {
+		printf("* 현재 잔액은 %d원 입니다.\n\n", money);
+		sel = menu();
+		if (sel == 'i') {
+			money = deposit(money);
+		}
+		else if (sel == 'o') {
+			money = withdraw(money);
+		}
+		else {
+			break;
+		}
+	}
+	return 0;
+}
+
+char menu() {
+	char sel;
+	while (1) {
+		printf("#메뉴를 선택하시오(i-입금, o-출금, q-종료) :");
+		scanf(" %c", &sel);
+		switch (sel) {
+		case 'i':return 'i'; break;
+		case 'o':return 'o'; break;
+		case 'q':return 'q'; break;
+		}
+		printf("* 잘못 입력하셨습니다.\n");
+		myflush();
+	}
+}
+int deposit(int money) {
+	int dep;
+	dep = inputInt("#입금액을 입력하세요 :");
+	money += dep;
+	return money;	
+}
+int withdraw(int money) {
+	int wit;
+	wit = inputInt("#출금액을 입력하세요 :");
+	if (wit <= money) {
+		money -= wit;
+	}
+	else {
+		printf("잔액이 부족합니다.\n");
+	}
+	return money;
+}
+int inputInt(const char *msg) {
+	int num;
+	printf("%s", msg);
+	
+	while (1) {
+		 while (1) {
+			scanf("%d", &num);
+			if (getchar() == '\n') { break; }
+			else {
+				printf("* 잘못 입력하셨습니다. 다시입력하십시오 :");
+			}
+			myflush();
+		}
+		 if (num >= 0) { break; }
+		 printf("* 잘못 입력하셨습니다. 다시입력하시오 :");
+	}
+	return num;
+}
+void myflush() {
+	while (getchar() != '\n') {
+		;
+	}
+	return;
+}
