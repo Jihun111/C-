@@ -1,0 +1,52 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+int input(void);
+int calEsc(int);
+void output(int,int);
+void myflush(void);
+
+int main()
+{
+	int dep,day,i=0;
+	while (1) {
+		dep = input();
+		day = calEsc(dep);
+		output(dep, day);
+		i++;
+		if (i > 6) { break; }
+	}
+	return 0;
+}
+int input(void) {
+	int dep;
+	printf("우물의 깊이를 입력하시오(cm단위) :");
+	scanf("%d", &dep);
+	while (1) {
+		if (getchar() == '\n') { break; }
+		myflush();
+	}
+	return dep;
+}
+int calEsc(int dep) {
+	int rise = 0;
+	int day = 0;
+	if (rise != dep) {
+		while (1) {
+			rise += 50;
+			day++;
+			if (rise >= dep) { break; }
+			rise -= 20;
+		}
+	}
+	return day;
+}
+void output(int dep, int day){
+	printf("%.2lf 미터 깊이의 우물을 탈출하기 위해서는 %d일이 걸립니다.\n", dep * 0.01, day);
+	return;
+}
+void myflush(void) {
+	while (getchar() != '\n') {
+		;
+	}
+	return;
+}
