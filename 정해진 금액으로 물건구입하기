@@ -1,0 +1,24 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int main() {
+	int check,money;
+	int cream, shrimp, cola;
+	while (1) {
+		printf("현재 당신의 소유 금액 입력 :");
+		scanf("%d", &money);
+		if (getchar() != '\n') { break; }
+		for (cream = 1; cream <= money / 500; cream++) {
+			for (shrimp = 1; shrimp <= money / 700; shrimp++) {
+				for (cola = 1; cola <= money / 400; cola++) {
+					check = money - 500*cream - 700* shrimp - 400*cola;
+					if (check == 0) {
+						printf("크림빵(%d개), 새우깡(%d개), 콜라(%d병)\n",cream,shrimp,cola);
+					}
+				}
+			}
+		}
+		printf("어떻게 구입하시겠습니까?\n\n");
+	}
+	return 0;
+}
