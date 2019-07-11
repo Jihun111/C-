@@ -1,0 +1,30 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int main()
+{
+	int eng = 0, num = 0, blank = 0, etc = 0;
+	char ch;
+	while ((ch = getchar()) != EOF) {
+		if (ch >= 'A' && ch <= 'Z') {
+			eng++;
+		}
+		else if (ch >= 'a' && ch <= 'z') {
+			eng++;
+		}
+		else if (ch >= '0' && ch <= '9') {
+			num++;
+		}
+		else if (ch == ' ' || ch == '\n' || ch == '\t') {
+			blank++;
+		}
+		else {
+			etc++;
+		}
+	}
+	printf("* 영문자 대소문자 개수 : %d개\n", eng);
+	printf("* 숫자문자 개수 : %d개\n", num);
+	printf("* 여백문자(space, tab, enter) 개수 : %d개\n", blank);
+	printf("* 그 외 기타문자 개수 : %d개\n", etc);
+	return 0;
+}
