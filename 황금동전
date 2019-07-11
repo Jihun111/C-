@@ -1,0 +1,40 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int inputInt();
+void myflush();
+
+int main() {
+	int day,i=1,j,k=0;
+	int sum = 0;
+	day = inputInt();
+	while(1){
+		j = 0;
+		while(1){
+			sum += i;
+			j++;
+			k++;
+			if (j >= i) { break; }
+			if (k == day) { break; }
+		}
+		if (k == day) { break; }
+		i++;
+	}
+	printf("근무일 : %d일 / 총 금화 수 : %d개",day, sum);
+	return 0;
+}
+
+int inputInt() {
+	int day;
+	while (1) {
+		printf("* 기사의 근무일수를 입력하시오 :");
+		scanf("%d", &day);
+		if (getchar() == '\n') { break; }
+		myflush();
+	}
+	return day;
+}
+void myflush() {
+	while (getchar() != '\n') { ; }
+	return;
+}
