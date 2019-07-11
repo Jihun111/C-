@@ -1,0 +1,118 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int menu();
+unsigned char openFan(unsigned char);
+unsigned char offFan(unsigned char);
+unsigned char reverseFan(unsigned char);
+void displayFan(unsigned char);
+void myflush();
+
+int main()
+{
+	int sel;
+	unsigned char fan = 0;
+	while (1) {
+		sel = menu();
+		switch (sel) {
+		case 1: fan = openFan(fan);
+			break;
+		case 2: fan = offFan(fan);
+			break;
+		case 3: fan = reverseFan(fan);
+			break;
+		default: break;
+		}
+		displayFan(fan);
+		if (sel == 4) { break; }
+	}
+	return 0;
+}
+
+int menu() {
+	int sel;
+	while (1) {
+		while (1) {
+			printf("1. 환풍구 열기 / 2. 환풍구 닫기 / 3. 환풍구 전체 전환 / 4. 종료 : ");
+			scanf("%d", &sel);
+			if (getchar() == '\n') { break; }
+			myflush();
+		}
+		if (sel >= 1 && sel <= 4) { break; }
+	}
+	return sel;
+}
+unsigned char openFan(unsigned char fan) {
+	int sel ;
+	printf("-------------------------------------------------------------------\n");
+	printf("\t\t Fan 열기 작업 실행 화면\n");
+	printf("-------------------------------------------------------------------\n");
+	while (1) {
+		while (1) {
+			printf("* OPEN할 FAN 번호를 입력하시오(1-8) :");
+			scanf("%d", &sel);
+			if (getchar() == '\n') { break; }
+			myflush();
+		}
+		if (sel >= 1 && sel <= 8) { break; }
+	}
+	sel = 0x01 << (sel-1);
+	fan = fan | sel;
+	return fan;
+}
+unsigned char offFan(unsigned char fan) {
+	int sel;
+	printf("-------------------------------------------------------------------\n");
+	printf("\t\t Fan 닫기 작업 실행 화면\n");
+	printf("-------------------------------------------------------------------\n");
+	while (1) {
+		while (1) {
+			printf(" * CLOSE할 FAN 번호를 입력하시오(1-8) :");
+			scanf("%d", &sel);
+			if (getchar() == '\n') { break; }
+			myflush();
+		}
+		if (sel >= 1 && sel <= 8) { break; }
+	}
+	sel = 0x01 << (sel-1);
+	if ((fan & sel) != 0) {
+		fan = fan ^ sel;
+	}
+	
+	return fan;
+}
+unsigned char reverseFan(unsigned char fan) {
+	printf("-------------------------------------------------------------------\n");
+	printf("\t\t Fan 전체 전환 작업 실행 화면\n");
+	printf("-------------------------------------------------------------------\n");
+	printf("전체 FAN의 상태가 전환되었습니다.(ON, OFF 상태 뒤바뀜)\n");
+	fan = fan ^ (unsigned char)0xff;
+	return fan;
+}
+void displayFan(unsigned char fan) {
+	int i;
+	int check;
+	printf("-------------------------------------------------------------------\n");
+	for (i = 8; i > 0; i--) {
+		printf("%d번FAN  ",i);
+	}
+	printf("\n");
+	for (i = 0; i < 8; i++) {
+		check = fan & ((unsigned char)0x80 >> i);
+		if (check == 0) {
+			printf("%5s","OFF");
+		}
+		else { printf("%5s","ON"); }
+		printf("   ");
+	}
+	printf("\n");
+	printf("-------------------------------------------------------------------\n");
+	return;
+}
+
+void myflush() {
+	while (getchar() != '\n') {
+		;
+	}
+	return;
+}
