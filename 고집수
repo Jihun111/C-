@@ -1,0 +1,46 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int inputUInt();
+void myflush();
+int tarnsNumber(int);
+int unsignInt();
+
+int main() {
+	int p1, p2;
+	while (1) {
+		printf("시작 값(P1) :");
+		p1 = inputUInt();
+		printf("끝 값(P2) :");
+		p2 = inputUInt();
+	}
+}
+
+int inputUInt() {
+	int n;
+	while (1) {
+		n = unsignInt();
+		if (getchar() == '\n') {
+			break;
+		}
+		{myflush(); }
+	}
+	return n;
+}
+void myflush() {
+	while (getchar() != '\n') {
+		;
+	}
+	return;
+}
+int unsignInt() {
+	int n;
+	while (1) {
+		scanf("%d", &n);
+		if (n >= 0) {
+			break;
+		}
+		{myflush(); }
+	}
+	return n;
+}
