@@ -1,0 +1,17 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+int main() {
+	double input;
+	double tot = 0;
+	int i = 1;
+	while (1) {
+		printf("%d번 학생의 키는? ",i);
+		scanf("%lf", &input);
+		tot = tot + input;
+		if (i == 5) { break; }
+		i++;
+	}
+	printf("다섯 명의 평균 키는 %.1lf cm 입니다.", tot / 5);
+	return 0;
+}
