@@ -1,0 +1,47 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+int input(void);
+int totalCal(int);
+int taxCal(int);
+void output(int, int);
+ int main()
+{
+	 double hour,tot,tax;
+	 hour = input();
+	 tot = totalCal(hour);
+	 tax = taxCal(tot);
+	 output(tot, tax);
+	 return 0;
+}
+ int input(void) {
+	 int hour;
+	 printf("* 1주일간의 근무시간을 입력하시오 : ");
+	 scanf("%d", &hour);
+	 return hour;
+ }
+ int totalCal(int hour) {
+	 int tot;
+	 if (hour > 40) {
+		 tot = 3000 * (40 + (hour - 40) * 1.5);
+	 }
+	 else {
+		 tot = hour * 3000;
+	 }
+	 return tot;
+ }
+ int taxCal(int tot) {
+	 int tax;
+	 if (tot > 100000) {
+		 tax = 100000 * 0.15 + (tot - 100000) * 0.25;
+	 }
+	 else {
+		 tax = tot * 0.15;
+	 }
+	 return tax;
+ }
+ void output(int tot, int tax) {
+	printf("# 총수입 : %6d원\n", tot);
+	printf("# 세  금 : %6d원\n", tax);
+	printf("# 실수입 : %6d원", tot - tax);
+	return;
+ }
