@@ -1,0 +1,30 @@
+#pragma warning(disable:4996)
+#include<stdio.h>
+
+void swap(int *,int);
+
+int main() {
+	int i,size;
+	int ary[] = { 1,2,3,4,5 };
+	size = sizeof(ary) / sizeof(int);
+	swap(ary,size);
+	printf("처음 배열에 저장된 값 : ");
+	for (i = size - 1; i >= 0; i--) {
+		printf("%3d", ary[i]);
+	}
+	printf("\n바뀐 배열에 저장된 값 : ");
+	for (i = 0; i < size; i++) {
+		printf("%3d", ary[i]);
+	}
+	return 0;
+}
+
+void swap(int *p,int size) {
+	int i,k;
+	for (i = 0; i < size/2; i++) {
+		k = p[i];
+		p[i] = p[size - i-1];
+		p[size - i-1] = k;
+	}
+	return;
+}
